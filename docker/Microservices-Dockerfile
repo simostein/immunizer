@@ -25,8 +25,9 @@ RUN curl -O https://downloads.apache.org/spark/spark-2.4.5/spark-2.4.5-bin-hadoo
 RUN tar -xvzf spark-2.4.5-bin-hadoop2.7.tgz
 RUN git clone --progress --verbose https://github.com/simostein/immunizer-monitor.git
 RUN git clone --progress --verbose https://github.com/simostein/immunizer-analyze.git
-WORKDIR /root/immunizer-monitor/scripts
-RUN ./submit2spark.sh
+RUN git clone --progress --verbose https://github.com/simostein/immunizer-sensor.git
+WORKDIR /root/immunizer-sensor/scripts
+RUN ./build.sh
 WORKDIR /root
 
 # cleanup
